@@ -1,10 +1,191 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    hi
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>exhqx.me</title>
+  </head>
+  <body class="p-14 bg-[#121315]">
+    <script defer>
+      let nf = new Intl.NumberFormat("en-US");
+
+      fetch("https://exhqx.deno.dev/")
+        .then((data) => data.json())
+        .then((data) => {
+          document.getElementById("pp").innerText = `${nf.format(
+            Math.round(data.osu.pp_raw)
+          )} [${Math.round(10 * data.osu.accuracy) / 10}%]`;
+
+          document.getElementById("osurank").innerText = `#${nf.format(
+            data.osu.pp_rank
+          )}`;
+
+          document.getElementById("osulocalrank").innerText = `#${nf.format(
+            data.osu.pp_country_rank
+          )}`;
+
+          document.getElementById("tr").innerText = `${nf.format(
+            Math.round(data.teto.rating)
+          )} [${data.teto.percentile_rank.toUpperCase()}]`;
+
+          document.getElementById("tetorank").innerText =
+            data.teto.standing == -1
+              ? "Inactive"
+              : `#${nf.format(data.teto.standing)}`;
+
+          document.getElementById("tetoranklocal").innerText =
+            data.teto.standing_local == -1
+              ? "Inactive"
+              : `#${nf.format(data.teto.standing_local)}`;
+        });
+    </script>
+
+    <div class="flex justify-around gap-5">
+      <div
+        class="relative p-7 bg-gradient-to-l from-[#2c2f33e0] to-[#1f1d24ff] text-white w-1/2"
+      >
+        <div
+          class="-z-10 absolute inset-0 bg-[url('assets/osuskin.jpg')] bg-cover"
+        ></div>
+
+        <div class="flex items-center space-x-3 mb-4">
+          <img
+            class="rounded-md shadow-lg hover:shadow-2xl hover:skew-x-1 transition-all"
+            width="160"
+            height="160"
+            src="https://a.ppy.sh/35063682"
+            alt="osu avatar"
+          />
+
+          <div class="px-4">
+            <div class="text-7xl font-semibold group">
+              <a href="https://osu.ppy.sh/users/35063682">exhqx</a>
+              <hr class="group-hover:w-[100%] w-0 my-1 transition-all" />
+            </div>
+            <div class="flex items-center">
+              <span class="text-gray-400">PP</span>
+              <span id="pp" class="ml-1">1778</span>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-between">
+          <div>
+            <div class="text-sm text-gray-400">Global Ranking</div>
+            <div id="osurank" class="text-lg font-semibold">#509,487</div>
+          </div>
+          <div>
+            <div class="text-sm text-gray-400">Country Ranking</div>
+            <div id="osulocalrank" class="text-lg font-semibold">#2,293</div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="relative p-7 bg-gradient-to-l from-[#2c2f33aa] to-[#1f1d24ff] text-white w-1/2"
+      >
+        <div
+          class="-z-10 absolute inset-0 bg-[url('assets/tetoskin.jpg')] bg-cover"
+        ></div>
+
+        <div class="flex items-center space-x-3 mb-4">
+          <img
+            class="rounded-md shadow-lg hover:-skew-x-1 transition-all"
+            width="160"
+            height="160"
+            src="https://tetr.io/user-content/avatars/60beea3b6c8e722d136e16b2.jpg"
+            alt="tetrio avatar"
+          />
+
+          <div class="px-4">
+            <div class="text-7xl font-semibold group">
+              <a href="https://ch.tetr.io/u/exhqx">exhqx</a>
+              <hr class="group-hover:w-[100%] w-0 my-1 transition-all" />
+            </div>
+            <div class="flex items-center">
+              <span class="text-gray-400">TR</span>
+              <span id="tr" class="ml-1">23768</span>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-between">
+          <div>
+            <div class="text-sm text-gray-400">Global Ranking</div>
+            <div id="tetorank" class="text-lg font-semibold">Inactive</div>
+          </div>
+          <div>
+            <div class="text-sm text-gray-400">Country Ranking</div>
+            <div id="tetoranklocal" class="text-lg font-semibold">Inactive</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="p-10 bg-zinc-900 flex gap-20">
+        <div>
+            <a href="https://github.com/i2mx">
+              <div
+                class="text-lg p-5 text-zinc-50 hover:skew-y-1 w-96 my-4 rounded shadow-sm hover:shadow-md bg-[#2c2f33] bg-gradient-to-r hover:scale-105 transition-all"
+              >
+              <svg
+              class="float-left my-2 h-fit pr-3 align-middle"
+              width="50"
+              height="50"
+              viewBox="0 0 15 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              ><path
+                  d="M7.49933 0.25C3.49635 0.25 0.25 3.49593 0.25 7.50024C0.25 10.703 2.32715 13.4206 5.2081 14.3797C5.57084 14.446 5.70302 14.2222 5.70302 14.0299C5.70302 13.8576 5.69679 13.4019 5.69323 12.797C3.67661 13.235 3.25112 11.825 3.25112 11.825C2.92132 10.9874 2.44599 10.7644 2.44599 10.7644C1.78773 10.3149 2.49584 10.3238 2.49584 10.3238C3.22353 10.375 3.60629 11.0711 3.60629 11.0711C4.25298 12.1788 5.30335 11.8588 5.71638 11.6732C5.78225 11.205 5.96962 10.8854 6.17658 10.7043C4.56675 10.5209 2.87415 9.89918 2.87415 7.12104C2.87415 6.32925 3.15677 5.68257 3.62053 5.17563C3.54576 4.99226 3.29697 4.25521 3.69174 3.25691C3.69174 3.25691 4.30015 3.06196 5.68522 3.99973C6.26337 3.83906 6.8838 3.75895 7.50022 3.75583C8.1162 3.75895 8.73619 3.83906 9.31523 3.99973C10.6994 3.06196 11.3069 3.25691 11.3069 3.25691C11.7026 4.25521 11.4538 4.99226 11.3795 5.17563C11.8441 5.68257 12.1245 6.32925 12.1245 7.12104C12.1245 9.9063 10.4292 10.5192 8.81452 10.6985C9.07444 10.9224 9.30633 11.3648 9.30633 12.0413C9.30633 13.0102 9.29742 13.7922 9.29742 14.0299C9.29742 14.2239 9.42828 14.4496 9.79591 14.3788C12.6746 13.4179 14.75 10.7025 14.75 7.50024C14.75 3.49593 11.5036 0.25 7.49933 0.25Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"></path></svg>
+                <b>Github</b>
+                <br />
+                find my source code on github
+              </div>
+            </a>
+            <div
+            onclick=`navigator.clipboard.writeText('${copy}')`
+            class="hover:cursor-grab">
+            <div
+                class="text-lg p-5 text-zinc-50 hover:-skew-y-1 w-96 my-4 rounded shadow-sm hover:shadow-md bg-[#2c2f33] bg-gradient-to-r hover:scale-105 transition-all"
+            > <img alt="discord icon"  class="float-left my-2 h-fit pr-3 align-middle" width="50" height="50" src="assets/discord.svg"/>
+                <b>Discord</b> - <span id="copy-text">exhqx</span>
+                <br />
+                add me on discord!
+            </div>
+            </div>
+            <a href="mailto:jayz0192837465@gmail.com">
+                <div
+                  class="text-lg p-5 text-zinc-50 hover:skew-y-1 w-96 my-4 rounded shadow-sm hover:shadow-md bg-[#2c2f33] bg-gradient-to-r hover:scale-105 transition-all"
+                >
+
+                  <b>Email</b> - jayz0192837465@gmail.com
+                  <br />
+                    for very serious buisness inquiries :>
+                </div>
+              </a>
+        </div>
+        <div class="text-white my-auto">
+            <p>hi, i like maths and science</p> 
+
+            <br>
+
+            <p>my favourite olympiad topic is number theory</p>
+            <p>my favourite number is 2</p>
+            <p>i also enjoy debating</p>
+
+
+
+            <br>
+            <p class="font-semibold"> random links: </p>
+            <ul class="list-disc ml-5">
+                <li><a class="underline" href="https://primepursuit.github.io/">Prime Pursuit</a> </li>
+                <li><a class="underline" href="https://mindnzorg.wixsite.com/mindnz/programs">MIND NZ</a> </li>
+                <li><a class="underline" href="https://train.nzoi.org.nz/user/1791">NZOI</a> </li>
+            </ul>
+        </div>
+    </div>
+  </body>
 </html>
