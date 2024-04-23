@@ -1,1 +1,5 @@
 - [ ] MOTD
+- [ ] Spotify 
+- [ ] ISL Solve List
+- [ ] Projcet Euler List
+- [ ] NZIC List?
