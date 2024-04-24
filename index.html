@@ -38,6 +38,27 @@
               ? "Inactive"
               : `#${nf.format(data.teto.standing_local)}`;
         });
+
+        fetch("https://exhqx-spotify.deno.dev/")
+          .then((data) => data.json())
+          .then((data) => {
+
+            console.log(data)
+
+            if(!data.isPlaying) {
+              document.getElementById("song_title").innerText = "Spotify"
+              document.getElementById("song_artist").innerText = "Not Currently Listening"
+              document.getElementById("song_cover").setAttribute("src", "")
+              document.getElementById("song_url").setAttribute("href", "")
+
+            }
+            else{
+              document.getElementById("song_title").innerText = data.title
+              document.getElementById("song_artist").innerText = data.artist
+              document.getElementById("song_cover").setAttribute("src", data.albumImageUrl)
+              document.getElementById("song_url").setAttribute("href", data.url)
+            }
+          })
     </script>
 
     <div class="flex justify-around gap-5">
@@ -122,18 +143,23 @@
 
     <br>
 
-    <div class="w-full bg-gradient-to-r from-zinc-800 to-neutral-900 rounded-xl shadow p-3">
+      <div class="w-full bg-gradient-to-r to-neutral-800 from-zinc-800 rounded-xl shadow p-3">
       <div class="flex justify-between">
         <div class="flex gap-3">
-          <div class="rounded-md shadow-lg w-16 h-16 bg-white"></div>
+          <div class="rounded-md shadow-2xl w-16 h-16 bg-white overflow-hidden">
+            <img id="song_cover" src="" alt="">
+          </div>
           <div class="my-auto">
-            <p class="text-white text-lg font-medium">Spotify</p>
-            <p class="text-zinc-400">Not Currently Listening</p>
+            <p id="song_title" class="text-white text-lg font-medium">Spotify</p>
+            <p id="song_artist" class="text-zinc-400">Not Currently Listening</p>
           </div>
         </div>
-        <svg class="shadow-lg" width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.513 2.048a.75.75 0 0 0-1.013.702v12.127a4 4 0 1 0 1.476 3.56.749.749 0 0 0 .024-.187V8.832l6.987 2.62A.75.75 0 0 0 20 10.75V7.483a3.25 3.25 0 0 0-2.109-3.044l-6.378-2.391Z" fill="#ffffff"/></svg>
+        <a id="song_url" href="">
+          <svg class="shadow-lg" width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.513 2.048a.75.75 0 0 0-1.013.702v12.127a4 4 0 1 0 1.476 3.56.749.749 0 0 0 .024-.187V8.832l6.987 2.62A.75.75 0 0 0 20 10.75V7.483a3.25 3.25 0 0 0-2.109-3.044l-6.378-2.391Z" fill="#ffffff"/></svg>
+        </a>
       </div>
     </div>
+
 
     <br>
 
