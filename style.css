@@ -1,0 +1,24 @@
+:root{
+  /** CSS DARK THEME PRIMARY COLORS */
+  --color-primary-100: #ff9eef;
+  --color-primary-200: #ffa9f1;
+  --color-primary-300: #ffb5f3;
+  --color-primary-400: #ffbff5;
+  --color-primary-500: #ffcaf6;
+  --color-primary-600: #ffd5f8;
+  /** CSS DARK THEME SURFACE COLORS */
+  --color-surface-100: #1a1426;
+  --color-surface-200: #2f293b;
+  --color-surface-300: #464050;
+  --color-surface-400: #5e5867;
+  --color-surface-500: #77727e;
+  --color-surface-600: #908c97;
+  /** CSS DARK THEME MIXED SURFACE COLORS */
+  --color-surface-mixed-100: #412c49;
+  --color-surface-mixed-200: #54405b;
+  --color-surface-mixed-300: #68566e;
+  --color-surface-mixed-400: #7c6c81;
+  --color-surface-mixed-500: #918395;
+  --color-surface-mixed-600: #a69aaa;
+}
+
