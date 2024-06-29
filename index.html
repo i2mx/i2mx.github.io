@@ -60,7 +60,13 @@
             document.getElementById("song_url").setAttribute("href", data.url);
           }
         });
-    </script>
+   
+        fetch("https://exhqx-kamar.deno.dev") 
+        .then((data) => data.json())
+        .then((json) => {
+          console.log(json);
+        });
+   </script>
 
     <div class="grid justify-around gap-5 lg:grid-cols-2 grid-cols-1">
       <div
