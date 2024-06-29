@@ -40,7 +40,7 @@
               : `#${nf.format(data.teto.standing_local)}`;
         });
 
-      fetch("https://exhqx-spotify.deno.dev/")
+      const spotifyAction = () => fetch("https://exhqx-spotify.deno.dev/")
         .then((data) => data.json())
         .then((data) => {
           console.log(data);
@@ -59,14 +59,46 @@
               .setAttribute("src", data.albumImageUrl);
             document.getElementById("song_url").setAttribute("href", data.url);
           }
+          setTimeout(spotifyAction, 5000);
         });
-   
-        fetch("https://exhqx-kamar.deno.dev") 
-        .then((data) => data.json())
-        .then((json) => {
-          console.log(json);
-        });
-   </script>
+
+      spotifyAction()
+
+      const parsePeriod = (period) => {
+        if (period[0].startsWith("Period")) {
+          const [periodNumber, time, optional, group, subject, teacher, room] =
+            period;
+          const cell = document.createElement("td");
+          cell.appendChild(document.createTextNode(`${subject} - ${time}`));
+          cell.appendChild(document.createTextNode(`${teacher} - ${room}`));
+          return cell;
+        }
+        return "";
+      };
+
+      // fetch("https://exhqx-kamar.deno.dev")
+      //   .then((data) => data.json())
+      //   .then((json) => {
+      //     const table = document.createElement("table");
+      //     table.classList.add("table-auto");
+      //     json.map((row) => {
+      //       const rowElement = document.createElement("tr");
+      //       row
+      //         .map((period) => {
+      //           return parsePeriod(period);
+      //         })
+      //         .filter((x) => x != "")
+      //         .forEach((x) => {
+      //           rowElement.appendChild(x);
+      //         });
+
+      //         return rowElement;
+      //     }).forEach((x) => {
+      //       table.appendChild(x);
+      //     });
+      //     document.getElementById("timetable").appendChild(table);
+      //   });
+    </script>
 
     <div class="grid justify-around gap-5 lg:grid-cols-2 grid-cols-1">
       <div
@@ -186,7 +218,9 @@
     >
       <div class="flex justify-between">
         <div class="flex gap-3">
-          <div class="rounded-md shadow-2xl w-16 h-16 bg-[var(--color-surface-mixed-400)] overflow-hidden">
+          <div
+            class="rounded-md shadow-2xl w-16 h-16 bg-[var(--color-surface-mixed-400)] overflow-hidden"
+          >
             <img id="song_cover" src="" alt="" />
           </div>
           <div class="my-auto">
@@ -196,6 +230,7 @@
             <p id="song_artist" class="text-[var(--color-surface-600)]">
               Not Currently Listening
             </p>
+            <!-- <progress class="h-1 rounded-3xl" max="100" value="50"></progress> -->
           </div>
         </div>
         <a id="song_url" href="">
@@ -218,6 +253,7 @@
 
     <br />
 
+    <!-- <div id="timetable"></div> -->
     <!-- <div class="p-10 bg-zinc-900 flex gap-20">
         <div>
           <a href="https://primepursuit.github.io/">

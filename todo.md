@@ -1,5 +1,7 @@
 - [ ] MOTD
 - [x] Spotify 
+    - [ ] Progress Bar (maybe you can share in only a portion of the background)
+    - [x] Dynamically Updating Spotifiy
 - [ ] ISL Solve List
 - [ ] Projcet Euler List
 - [ ] NZIC List?
