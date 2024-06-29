@@ -22,3 +22,9 @@
   --color-surface-mixed-600: #a69aaa;
 }
 
+::selection {
+  background: var(--color-surface-mixed-200);
+}
+::-moz-selection {
+  background: var(--color-surface-mixed-200);
+}
