@@ -1,3 +1,5 @@
+<!-- icons from here https://feathericons.com/?query=githu -->
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,7 +8,57 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>exhqx.me</title>
   </head>
-  <body class="p-6 bg-[var(--color-surface-100)]">
+  <body class="p-6 m-auto max-w-7xl bg-[#241d32]">
+    <div class="font-serif mx-auto text-white">
+      <h1 class="transition-all text-7xl sm:text-8xl">exhqx<span class="text-[var(--color-primary-400)]">.me</span></h1>
+      <p class="px-8">hello world</p>
+    </div>
+    <div class="h-6"></div>
+
+    <div
+      class="rounded-xl overflow-hidden relative w-full bg-gradient-to-l from-[#2f293bee] to-[#2f293bf0] shadow p-3"
+    >
+      <div
+        class="-z-10 absolute inset-0 bg-[url('assets/rose_pine_circle.png')] bg-cover"
+      ></div>
+
+      <div class="flex justify-between">
+        <div class="flex gap-3">
+          <div
+            class="rounded-md shadow-2xl w-16 h-16 bg-[var(--color-surface-mixed-400)] overflow-hidden"
+          >
+            <img id="song_cover" src="" alt="" />
+          </div>
+          <div class="my-auto">
+            <p id="song_title" class="text-white text-lg font-medium">
+              Spotify
+            </p>
+            <p id="song_artist" class="text-[var(--color-surface-600)]">
+              Not Currently Listening
+            </p>
+            <!-- <progress class="bh-1 rounded-3xl" max="100" value="50"></progress> -->
+          </div>
+        </div>
+        <a id="song_url" href="">
+          <svg
+            class="shadow-xl"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M11.513 2.048a.75.75 0 0 0-1.013.702v12.127a4 4 0 1 0 1.476 3.56.749.749 0 0 0 .024-.187V8.832l6.987 2.62A.75.75 0 0 0 20 10.75V7.483a3.25 3.25 0 0 0-2.109-3.044l-6.378-2.391Z"
+              fill="#ffffff"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="h-6"></div>
+
     <script defer>
       let nf = new Intl.NumberFormat("en-US");
 
@@ -40,29 +92,32 @@
               : `#${nf.format(data.teto.standing_local)}`;
         });
 
-      const spotifyAction = () => fetch("https://exhqx-spotify.deno.dev/")
-        .then((data) => data.json())
-        .then((data) => {
-          console.log(data);
+      const spotifyAction = () =>
+        fetch("https://exhqx-spotify.deno.dev/")
+          .then((data) => data.json())
+          .then((data) => {
+            // console.log(data);
 
-          if (!data.isPlaying) {
-            document.getElementById("song_title").innerText = "Spotify";
-            document.getElementById("song_artist").innerText =
-              "Not Currently Listening";
-            document.getElementById("song_cover").setAttribute("src", "");
-            document.getElementById("song_url").setAttribute("href", "");
-          } else {
-            document.getElementById("song_title").innerText = data.title;
-            document.getElementById("song_artist").innerText = data.artist;
-            document
-              .getElementById("song_cover")
-              .setAttribute("src", data.albumImageUrl);
-            document.getElementById("song_url").setAttribute("href", data.url);
-          }
-          setTimeout(spotifyAction, 5000);
-        });
+            if (!data.isPlaying) {
+              document.getElementById("song_title").innerText = "Spotify";
+              document.getElementById("song_artist").innerText =
+                "Not Currently Listening";
+              document.getElementById("song_cover").setAttribute("src", "");
+              document.getElementById("song_url").setAttribute("href", "");
+            } else {
+              document.getElementById("song_title").innerText = data.title;
+              document.getElementById("song_artist").innerText = data.artist;
+              document
+                .getElementById("song_cover")
+                .setAttribute("src", data.albumImageUrl);
+              document
+                .getElementById("song_url")
+                .setAttribute("href", data.url);
+            }
+            setTimeout(spotifyAction, 5000);
+          });
 
-      spotifyAction()
+      spotifyAction();
 
       const parsePeriod = (period) => {
         if (period[0].startsWith("Period")) {
@@ -110,17 +165,17 @@
 
         <div class="flex flex-col sm:flex-row items-center space-x-3 mb-4">
           <img
-            class="w-full sm:w-40 rounded-md shadow-lg hover:shadow-2xl hover:skew-x-1 transition-all"
+            class="w-full sm:w-40 hidden sm:block rounded-md shadow-lg hover:shadow-2xl hover:skew-x-1 transition-all"
             width="160"
             height="160"
             src="https://a.ppy.sh/35063682"
-            alt="osu avatar"
+            alt=""
           />
 
           <div class="px-4">
             <div class="sm:text-7xl text-6xl font-semibold group">
               <a class="transition-all" href="https://osu.ppy.sh/users/35063682"
-                >exhqx</a
+                >osu!</a
               >
               <hr
                 class="bg-[var(--color-surface-600)] group-hover:w-[100%] w-0 my-1 transition-all"
@@ -165,17 +220,17 @@
 
         <div class="flex flex-col sm:flex-row items-center space-x-3 mb-4">
           <img
-            class="w-full sm:w-40 rounded-md shadow-lg hover:-skew-x-1 transition-all"
+            class="w-full sm:w-40 hidden sm:block rounded-md shadow-lg hover:-skew-x-1 transition-all"
             width="160"
             height="160"
-            src="https://tetr.io/user-content/avatars/60beea3b6c8e722d136e16b2.jpg"
-            alt="tetrio avatar"
+            src="https://tetr.io/user-content/avatars/60beea3b6c8e722d136e16b2.jpg?rv=1731836436536"
+            alt=""
           />
 
           <div class="px-4">
             <div class="sm:text-7xl text-6xl font-semibold group">
               <a class="transition-all" href="https://ch.tetr.io/u/exhqx"
-                >exhqx</a
+                >TETR.IO</a
               >
               <hr
                 class="bg-[var(--color-surface-600)] group-hover:w-[100%] w-0 my-1 transition-all"
@@ -213,120 +268,106 @@
     </div>
 
     <div class="h-6"></div>
+
+    <!-- <div
+    class="shadow-sm rounded-2xl overflow-hidden relative p-7 bg-gradient-to-l from-[#2f293bee] to-[#2f293bff] text-white"
+  >
     <div
-      class="rounded-xl overflow-hidden w-full bg-[var(--color-surface-200)] shadow p-3"
+      class="-z-10 absolute inset-0 bg-[url('assets/osuskin.jpg')] bg-cover"
+    ></div> -->
+
+    <div
+      class="rounded-xl overflow-hidden w-full relative bg-gradient-to-bl from-[#2f293bee] to-[#2f293bf0] shadow p-4"
     >
-      <div class="flex justify-between">
-        <div class="flex gap-3">
-          <div
-            class="rounded-md shadow-2xl w-16 h-16 bg-[var(--color-surface-mixed-400)] overflow-hidden"
-          >
-            <img id="song_cover" src="" alt="" />
+      <div
+        class="-z-10 absolute inset-0 bg-[url('assets/keyboards.png')] bg-cover"
+      ></div>
+
+      <div class="text-white flex justify-between">
+        <div>
+          <div class="w-fit text-white text-3xl font-medium group">
+            <a
+              class="transition-all"
+              href="https://monkeytype.com/profile/traqq3d"
+              >monkeytype</a
+            >
+            <hr
+              class="bg-[var(--color-surface-600)] group-hover:w-[100%] w-0 my-1 transition-all"
+            />
           </div>
-          <div class="my-auto">
-            <p id="song_title" class="text-white text-lg font-medium">
-              Spotify
+          <p class="text-white">
+            <span class="font-semibold text-[var(--color-primary-600)]"
+              >top </span
+            >1.92%
+            <span class="italic text-[var(--color-surface-600)]"
+              >[15 seconds]</span
+            >
+          </p>
+        </div>
+        <div class="flex flex-col-reverse justify-between">
+          <div>
+            <p>
+              <span id="wpm">170.39</span>
+              <span class="font-semibold text-[var(--color-primary-600)]">
+                wpm
+              </span>
             </p>
-            <p id="song_artist" class="text-[var(--color-surface-600)]">
-              Not Currently Listening
+            <p>
+              <span id="acc">100</span>%
+              <span class="font-semibold text-[var(--color-primary-600)]">
+                acc
+              </span>
             </p>
-            <!-- <progress class="h-1 rounded-3xl" max="100" value="50"></progress> -->
           </div>
         </div>
-        <a id="song_url" href="">
-          <svg
-            class="shadow-xl"
-            width="24"
-            height="24"
-            fill="none"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M11.513 2.048a.75.75 0 0 0-1.013.702v12.127a4 4 0 1 0 1.476 3.56.749.749 0 0 0 .024-.187V8.832l6.987 2.62A.75.75 0 0 0 20 10.75V7.483a3.25 3.25 0 0 0-2.109-3.044l-6.378-2.391Z"
-              fill="#ffffff"
-            />
-          </svg>
-        </a>
       </div>
     </div>
+    <script defer>
+      fetch("https://api.monkeytype.com/users/traqq3d/profile")
+        .then((data) => data.json())
+        .then((json) => {
+          console.log(json);
+          let time15 = json.data.personalBests.time[15];
+          let best = time15[0];
+          for (const score of time15) {
+            if (score.wpm > best.wpm) {
+              best = score;
+            }
+          }
 
-    <!-- <br /> -->
+          document.getElementById("wpm").innerText = best.wpm;
+          document.getElementById("acc").innerText = best.acc;
+          console.log(best);
+        });
+    </script>
 
-    <!-- <div id="timetable"></div> -->
-    <!-- <div class="p-10 bg-zinc-900 flex gap-20">
-        <div>
-          <a href="https://primepursuit.github.io/">
-            <div
-              class="text-lg p-5 hover:bg-[#C2D9B9] text-zinc-50 hover:text-[#393740] hover:skew-y-1 w-96 my-4 rounded shadow-sm hover:shadow-md bg-[#2c2f33] bg-gradient-to-r hover:scale-105 transition-all"
-            >
-            <img
-              alt="primepursuit logo"
-              src="pp.png"
-              class="float-left my-2 h-fit pr-3 align-middle"
-              width="50"
-              height="50"
-              >
-              <b>Prime Pursuit</b>
-              <br />
-              maths olympiad content
-            </div>
-          </a>
+    <div class="h-12"></div>
+    <div class="font-serif mx-auto text-white">
+      trying to be happy :)
+      <h1 class="text-8xl">Notes</h1>
 
-          <a href="https://mindnzorg.wixsite.com/mindnz/programs">
-            <div
-              class="text-lg p-5 hover:bg-[#60B2BF] text-zinc-50 hover:skew-y-1 w-96 my-4 rounded shadow-sm hover:shadow-md bg-[#2c2f33] bg-gradient-to-r hover:scale-105 transition-all"
-            >
-            <img
-            src="mz.webp"
-            alt="mindnz logo"
-            class="float-left my-3 pr-3 align-middle"
-            width="50"
-            height="50"
-            >
-              <b>MINDNZ</b>
-              <br />
-              online maths olympiad tutorial
-            </div>
-          </a>
+      <div class="flex justify-between">
+        <p>rainy days will always pass</p>
+        <p>
+          <a
+            class="italic underline underline-offset-4"
+            href="https://docs.google.com/spreadsheets/d/1iuTo5kreuic6g_yFDE28bWYSwAB90yfMjzSZ0_y5zPs/edit?gid=0#gid=0"
+            >my imo shortlist solve list :)</a
+          >
+        </p>
+      </div>
 
-            <a href="https://github.com/i2mx">
-              <div
-                class="text-lg p-5 hover:bg-slate-600 text-zinc-50 hover:skew-y-1 w-96 my-4 rounded shadow-sm hover:shadow-md bg-[#2c2f33] bg-gradient-to-r hover:scale-105 transition-all"
-              >
-              <svg
-              class="float-left my-2 h-fit pr-3 align-middle"
-              width="50"
-              height="50"
-              viewBox="0 0 15 15"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              ><path
-                  d="M7.49933 0.25C3.49635 0.25 0.25 3.49593 0.25 7.50024C0.25 10.703 2.32715 13.4206 5.2081 14.3797C5.57084 14.446 5.70302 14.2222 5.70302 14.0299C5.70302 13.8576 5.69679 13.4019 5.69323 12.797C3.67661 13.235 3.25112 11.825 3.25112 11.825C2.92132 10.9874 2.44599 10.7644 2.44599 10.7644C1.78773 10.3149 2.49584 10.3238 2.49584 10.3238C3.22353 10.375 3.60629 11.0711 3.60629 11.0711C4.25298 12.1788 5.30335 11.8588 5.71638 11.6732C5.78225 11.205 5.96962 10.8854 6.17658 10.7043C4.56675 10.5209 2.87415 9.89918 2.87415 7.12104C2.87415 6.32925 3.15677 5.68257 3.62053 5.17563C3.54576 4.99226 3.29697 4.25521 3.69174 3.25691C3.69174 3.25691 4.30015 3.06196 5.68522 3.99973C6.26337 3.83906 6.8838 3.75895 7.50022 3.75583C8.1162 3.75895 8.73619 3.83906 9.31523 3.99973C10.6994 3.06196 11.3069 3.25691 11.3069 3.25691C11.7026 4.25521 11.4538 4.99226 11.3795 5.17563C11.8441 5.68257 12.1245 6.32925 12.1245 7.12104C12.1245 9.9063 10.4292 10.5192 8.81452 10.6985C9.07444 10.9224 9.30633 11.3648 9.30633 12.0413C9.30633 13.0102 9.29742 13.7922 9.29742 14.0299C9.29742 14.2239 9.42828 14.4496 9.79591 14.3788C12.6746 13.4179 14.75 10.7025 14.75 7.50024C14.75 3.49593 11.5036 0.25 7.49933 0.25Z"
-                  fill="currentColor"
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"></path></svg>
-                <b>Github</b>
-                <br />
-                find my source code on github
-              </div>
-            </a>
-            <div
-            onclick=`navigator.clipboard.writeText('${copy}')`
-            class="hover:cursor-grab">
-            <div
-                class="text-lg p-5 hover:bg-[#5865f2] text-zinc-50 hover:-skew-y-1 w-96 my-4 rounded shadow-sm hover:shadow-md bg-[#2c2f33] bg-gradient-to-r hover:scale-105 transition-all"
-            > <img alt="discord icon"  class="float-left my-3 h-fit pr-3 align-middle" width="50" height="50" src="assets/discord.svg"/>
-                <b>Discord</b> - <span id="copy-text">exhqx</span>
-                <br />
-                add me on discord!
-            </div>
-            </div>
+      <div class="h-6"></div>
+      <ul class="list-disc pl-10">
+        <li><a href="notes/2024 IMO Report">2024 IMO Report</a></li>
+      </ul>
+    </div>
+    <div class="h-6"></div>
 
-        </div>
-        <div class="text-white my-auto">
-
-        </div>
-    </div> -->
+    <div class="font-serif mx-auto text-white">
+      I am really really tired of typing <code>flex</code> so many times (thank
+      goodness for tailwindcss), I will try and do everything with latex and
+      markdown from now on.
+    </div>
   </body>
 </html>
