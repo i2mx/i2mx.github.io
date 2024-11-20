@@ -25,7 +25,15 @@
       class="rounded-xl overflow-hidden relative w-full bg-gradient-to-l from-[#2f293bee] to-[#2f293bf0] shadow p-3"
     >
       <div
-        class="-z-10 absolute inset-0 bg-[url('assets/rose_pine_circle.png')] bg-cover"
+        id="progress"
+        class="opacity-40 -z-10 absolute inset-0"
+        style="
+          background: transparent
+        "
+      ></div>
+
+      <div
+        class="-z-20 absolute inset-0 bg-[url('assets/rose_pine_circle.png')] bg-cover"
       ></div>
 
       <div class="flex justify-between">
@@ -102,14 +110,16 @@
         fetch("https://exhqx-spotify.deno.dev/")
           .then((data) => data.json())
           .then((data) => {
-            // console.log(data);
-
             if (!data.isPlaying) {
               document.getElementById("song_title").innerText = "Spotify";
               document.getElementById("song_artist").innerText =
                 "Not Currently Listening";
               document.getElementById("song_cover").setAttribute("src", "");
               document.getElementById("song_url").setAttribute("href", "");
+
+              document.getElementById(
+                "progress"
+              ).style = `background: transparent`;
             } else {
               document.getElementById("song_title").innerText = data.title;
               document.getElementById("song_artist").innerText = data.artist;
@@ -119,6 +129,11 @@
               document
                 .getElementById("song_url")
                 .setAttribute("href", data.url);
+
+              let percentage = (data.progress / data.duration) * 100;
+              document.getElementById(
+                "progress"
+              ).style = `background: linear-gradient(to right, var(--color-primary-400) ${percentage}%, transparent ${percentage+10}%)`;
             }
             setTimeout(spotifyAction, 5000);
           });
@@ -332,7 +347,6 @@
       fetch("https://api.monkeytype.com/users/traqq3d/profile")
         .then((data) => data.json())
         .then((json) => {
-          console.log(json);
           let time15 = json.data.personalBests.time[15];
           let best = time15[0];
           for (const score of time15) {
@@ -343,7 +357,6 @@
 
           document.getElementById("wpm").innerText = best.wpm;
           document.getElementById("acc").innerText = best.acc;
-          console.log(best);
         });
     </script>
 
