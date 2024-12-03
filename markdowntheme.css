@@ -148,11 +148,11 @@ body#index li {
 /* iPhone
 -------------------------------------------------------- */
 @media only screen and (max-device-width: 480px) {
-  html{
-    font-size: 200%;
-  }
-  
   body {
+    /* font-size: 200%; */
+    transform-origin: top;
+    scale: 125%;
+    /* width: fit-content; */
     text-align: left;
   }
   article,
