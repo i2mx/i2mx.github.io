@@ -11,7 +11,7 @@ Of course aside from any practical reasons, I think it's really funny and silly 
 ![isn't this sick](.\image.png)
 
 
-I am planning on learning this words on this [quizlet](https://quizlet.com/697975615/bombparty-long-word-flash-cards/) and the I'll try and learn some of the the hyphenated words.
+I am planning on learning these words on this [quizlet](https://quizlet.com/697975615/bombparty-long-word-flash-cards/) and then I'll try and learn some of the the hyphenated words.
 
 Heres a list of the words I like:
 - antidisestablishmentarianism
