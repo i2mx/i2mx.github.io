@@ -8,10 +8,10 @@ Now an additional rule is that if eventually you are able to type out every lett
 
 Of course aside from any practical reasons, I think it's really funny and silly and cool type out long words like 'acetylphenylhydrazine' or 'antiferromagnetism'. I was also really inspired by this [blog post](https://sillysalmon.bearblog.dev/001-learning-words-for-bomb-party/) and the people I met in random public rooms. 
 
-![isn't this sick](image.png)
+![isn't this sick](.\image.png)
 
 
-I am planning on learning this words on this [quizlet] (https://quizlet.com/697975615/bombparty-long-word-flash-cards/) and the I'll try and learn some of the the hyphenated words.
+I am planning on learning this words on this [quizlet](https://quizlet.com/697975615/bombparty-long-word-flash-cards/) and the I'll try and learn some of the the hyphenated words.
 
 Heres a list of the words I like:
 - antidisestablishmentarianism
