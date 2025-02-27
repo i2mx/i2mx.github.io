@@ -27,9 +27,7 @@
       <div
         id="progress"
         class="opacity-40 -z-10 absolute inset-0"
-        style="
-          background: transparent
-        "
+        style="background: transparent"
       ></div>
 
       <div
@@ -133,7 +131,9 @@
               let percentage = (data.progress / data.duration) * 100;
               document.getElementById(
                 "progress"
-              ).style = `background: linear-gradient(to right, var(--color-primary-400) ${percentage}%, transparent ${percentage+10}%)`;
+              ).style = `background: linear-gradient(to right, var(--color-primary-400) ${percentage}%, transparent ${
+                percentage + 10
+              }%)`;
             }
             setTimeout(spotifyAction, 5000);
           });
@@ -378,7 +378,11 @@
 
       <div class="h-6"></div>
       <ul class="list-disc pl-10">
-        <li><a href="notes/getting into bomb party">getting into bomb party</a></li>
+        <li>
+          <a href="notes/Induction.pdf">Induction</a>
+        <!-- </li>        <li>
+          <a href="notes/getting into bomb party">getting into bomb party</a>
+        </li> -->
         <li><a href="notes/2024 IMO Report">2024 IMO Report</a></li>
       </ul>
     </div>
