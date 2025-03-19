@@ -14,9 +14,9 @@ $$\mathbb{P}(\text{\# of events} = r) = {n \choose r} p^r q^{n-r}$$
 
 We also know that during this period of $n$ seconds we would expect there to be $np$ events. So if we know that during these $n$ seconds we should expect there to be $\lambda$ events, we have that $p = \frac{\lambda}{n}$.
 
-But of course we don't actually know that two events cannot happen within a second of one another, what if two atoms just happen to decay within a second of one another. What if two customs just happen to click order within a second of one another. We just don't know.
+But of course we don't actually know that two events cannot happen within a second of one another, what if two atoms just happen to decay within a second of one another. What if two customers just happen to click order within a second of one another. We just don't know.
 
-Now the trick is that we can just consider a period of time even smaller than a second, even smaller than a millisecond, what if we just tare the limit as our period of time in which no events can happen approaches infinite. Or in other words, we assume that the number of "seconds" within our time period $n$ gets really really large. This is perfect because at some point the probability of two events happening within $0.000000\dots00001$ seconds of one another is so small that it could not possibly impact the final probability.
+Now the trick is that we can just consider a period of time even smaller than a second, even smaller than a millisecond, what if we just take the limit as our period of time in which no events can happen becomes infinitely small. Or in other words, we assume that the number of "seconds" within our time period $n$ gets really really large. This is perfect because at some point the probability of two events happening within $0.000000\dots00001$ seconds of one another is so small that it could not possibly impact the final probability.
 
 ---
 
@@ -50,7 +50,7 @@ $$ \begin{align*}
 &= \frac{e^{-\lambda} \cdot \lambda^r}{r!} \lim_{n \to \infty} \left( \frac{n}{n} \cdot \frac{n-1}{n} \cdot \dots \cdot \frac{n-r+1}{n} \right)
 \end{align*} \\ 
 $$
-Now if is not too much work to show that the limit evaluates to $1$ which gives us the poisson distribution formula again.
+Now it is not too much work to show that the limit evaluates to $1$ which gives us the poisson distribution formula again.
 
 ---
 
