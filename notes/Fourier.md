@@ -2,7 +2,7 @@
 The fourier transform is this black box operation which takes in a function in terms of time and returns a function in terms of frequency. However treating the fourier transform as a pure black box is foolish, especially when what's inside isn't necessarily something that we need to be scared of.
 <div style="text-align: center;">
 
-![Sailor Moon](transform_cover.jpg)
+![Sailor Moon](.\transform_cover.jpg)
 </div>
 
 ## Linear Algebra and the Orthonormal Basis Vectors
@@ -147,7 +147,7 @@ plt.ylabel("$f(x)$")
 plt.show() 
 ```
 ### Plot of $f(x)$ approximated with $200$ terms
-![Plot of f(x)](Figure_1.png) 
+![Plot of f(x)](.\Figure_1.png) 
 
 We call the above infinite sum the fourier series of $f(x) = x$
 
